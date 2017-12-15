@@ -1,0 +1,72 @@
+.consigner {
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    .row {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .progress-bar{
+                flex: 1;
+                margin: 0 0.5rem;
+                position: relative;
+                .value{
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-radius: 5px;
+                }
+                .background{
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-radius: 5px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    .title{
+                        display: block;
+                        width: 90%;
+                        font-size: 2rem;
+                    }
+                    .text{
+                        display: block;
+                        width: 90%;
+                        text-align: right;
+                        font-size: 3rem;
+                    }
+                }
+            }
+            .transport-type{
+                flex: 1;
+                margin: 0 0.5rem;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                line-height: 3rem;
+                font-size: 1.8rem;
+                img{
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
+        }
+    }
+}

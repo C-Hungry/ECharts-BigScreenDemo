@@ -1,0 +1,159 @@
+.transport {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    // background-image: url(../../images/background-1.png);
+    font-size: 1.4rem;
+    color: white;
+    .title {
+        flex: 1;
+        font-size: 3.2rem;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        img,
+        span {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .content {
+        flex: 9;
+        display: flex;
+        .middle {
+            flex: 2;
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            .middle-top {
+                flex: 2;
+                position: relative;
+            }
+            .middle-middle {
+                flex: 6;
+                position: relative;
+            }
+            .middle-bottom {
+                flex: 1;
+                position: relative;
+                display: flex;
+                .legend{
+                    position: absolute;
+                    top: 0.5rem;
+                    bottom: 0.5rem;
+                    left: 0.5rem;
+                    right: 0.5rem;
+                    flex: 1;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    display: flex;
+                    justify-content: flex-end;
+                    .item{
+                        width: 10rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .circle{
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            border-radius: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .other {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            .left-top {
+                flex: 2;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                margin: 5px;
+                position: relative;
+                .content {
+                    position: absolute;
+                    top: 60px;
+                    bottom: 10px;
+                    left: 20px;
+                    right: 20px;
+                }
+            }
+            .left-bottom {
+                flex: 1;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                margin: 5px;
+                position: relative;
+                .content {
+                    position: absolute;
+                    top: 50px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .right-top {
+                flex: 3;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                margin: 5px;
+                position: relative;
+                .content {
+                    position: absolute;
+                    top: 50px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px;
+                }
+            }
+            .right-middle {
+                flex: 3;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                margin: 5px;
+                position: relative;
+                .content {
+                    position: absolute;
+                    top: 50px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .right-bottom {
+                flex: 2;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                margin: 5px;
+                position: relative;
+                .content {
+                    position: absolute;
+                    top: 50px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .title {
+                background-color: rgba(255, 255, 255, 0.1);
+                text-align: left;
+                border-radius: 0.5rem 0.5rem 0 0;
+                font-size: 2rem;
+                font-weight: normal;
+                padding: 10px;
+            }
+        }
+    }
+}
