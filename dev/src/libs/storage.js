@@ -29,3 +29,11 @@ export const getToken = () => {
   var userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
   return userInfo ? userInfo.token : "";
 }
+
+/**
+ * 获取用户信息中的corpID
+ */
+export const getCorpID = () => {
+  var userInfo = JSON.parse(window.sessionStorage.getItem("userInfo"));
+  return userInfo ? userInfo.corpID : "";
+}

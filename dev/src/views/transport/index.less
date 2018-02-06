@@ -7,11 +7,11 @@
     right: 0;
     flex-direction: column;
     // background-image: url(../../images/background-1.png);
-    font-size: 1.4rem;
+    font-size: 0.7vw;
     color: white;
     .title {
         flex: 1;
-        font-size: 3.2rem;
+        font-size: 1.5vw;
         font-weight: bold;
         text-align: center;
         position: relative;
@@ -24,6 +24,7 @@
             transform: translate(-50%, -50%);
         }
     }
+    
     .content {
         flex: 9;
         display: flex;
@@ -37,32 +38,33 @@
                 position: relative;
             }
             .middle-middle {
-                flex: 6;
+                flex: 5.5;
                 position: relative;
             }
             .middle-bottom {
-                flex: 1;
+                flex: 1.5;
                 position: relative;
                 display: flex;
                 .legend{
                     position: absolute;
-                    top: 0.5rem;
-                    bottom: 0.5rem;
-                    left: 0.5rem;
-                    right: 0.5rem;
+                    top: 0.25vw;
+                    bottom: 0.25vw;
+                    left: 0.25vw;
+                    right: 0.25vw;
                     flex: 1;
-                    background-color: rgba(255, 255, 255, 0.1);
                     display: flex;
-                    justify-content: flex-end;
+                    flex-direction: column;
+                    align-items: flex-end;
                     .item{
-                        width: 10rem;
+                        flex: 1;
+                        width: 7vw;
                         display: flex;
-                        justify-content: center;
-                        align-items: center;
+                        justify-content: flex-start;
+                        line-height: 1vw;
                         .circle{
-                            width: 1.5rem;
-                            height: 1.5rem;
-                            border-radius: 1.5rem;
+                            width: 0.75vw;
+                            height: 0.75vw;
+                            border-radius: 0.75vw;
                         }
                     }
                 }
@@ -102,7 +104,7 @@
                 }
             }
             .right-top {
-                flex: 3;
+                flex: 4;
                 background-color: rgba(255, 255, 255, 0.1);
                 border-radius: 5px;
                 margin: 5px;
@@ -133,7 +135,7 @@
                 }
             }
             .right-bottom {
-                flex: 2;
+                flex: 3;
                 background-color: rgba(255, 255, 255, 0.1);
                 border-radius: 5px;
                 margin: 5px;
@@ -149,10 +151,12 @@
             .title {
                 background-color: rgba(255, 255, 255, 0.1);
                 text-align: left;
-                border-radius: 0.5rem 0.5rem 0 0;
-                font-size: 2rem;
+                border-radius: 0.25vw 0.25vw 0 0;
+                font-size: 0.85vw;
                 font-weight: normal;
-                padding: 10px;
+                height: 45px;
+                line-height: 45px;
+                padding: 0 10px;
             }
         }
     }

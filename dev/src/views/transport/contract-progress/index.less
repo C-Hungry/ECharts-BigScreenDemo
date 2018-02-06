@@ -1,0 +1,49 @@
+.consigner {
+    position: absolute;
+    top: 0.25vw;
+    bottom: 0.25vw;
+    left: 0.25vw;
+    right: 0.25vw;
+    display: flex;
+    flex-direction: column;
+    .middle-bottom {
+        height: 2.5vw;
+        position: relative;
+        display: flex;
+        .legend{
+            position: absolute;
+            top: 0.25vw;
+            bottom: 0.25vw;
+            left: 0.25vw;
+            right: 0.25vw;
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            .item{
+                width: 5vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .circle{
+                    width: 0.75vw;
+                    height: 0.75vw;
+                    border-radius: 0.75vw;
+                }
+            }
+            .item-line{
+                flex: 2;
+                display: flex;
+                padding-left: 1vw;
+                justify-content: flex-start;
+                align-items: center;
+                .line{
+                    width: 2vw;
+                    height: 1px;
+                }
+            }
+        }
+    }
+    .content{
+        flex: 1;
+    }
+}

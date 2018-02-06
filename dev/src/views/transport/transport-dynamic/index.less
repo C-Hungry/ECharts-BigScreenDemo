@@ -1,0 +1,238 @@
+.dynamic {
+    .item {
+        flex: 1;
+        font-size: 0.8vw;
+        display: flex;
+        flex-direction: column;
+        .content {
+            flex: 1;
+            display: flex;
+            position: relative;
+            .area {
+                display: flex;
+                height: 1.4vw;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                transform: translate(0, -50%);
+                text-align: left;
+                cursor: pointer;
+                .progress-title {
+                    flex: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .progress-bar {
+                    flex: 3;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    border-radius: 3px;
+                    position: relative;
+                    overflow: hidden;
+                    .value {
+                        background-color: #5DA9D4;
+                        display: block;
+                        height: 100%;
+                        width: 50%;
+                        border-radius: 3px;
+                        position: absolute;
+                    }
+                    .text {
+                        position: absolute;
+                        display: block;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+        .detail {
+            flex: 1;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.1);
+            .arrow{
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: -0.6vw;
+                right: 33%;
+                border: solid 0.3vw rgba(255, 255, 255, 0);
+                border-bottom: solid 0.3vw rgba(255, 255, 255, 0.1);
+            }
+            .content {
+                position: absolute;
+                top: 0.35vw;
+                left: 0.35vw;
+                bottom: 0.35vw;
+                right: 0.35vw;
+                display: flex;
+                flex-direction: column;
+                .row {
+                    flex: 1;
+                    display: flex;
+                    .column {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        color: #D9B642;
+                        font-size: 0.7vw;
+                    }
+                }
+            }
+        }
+    }
+
+    .list-item {
+        display: inline-block;
+        margin-right: 0.3vw;
+    }
+    .list-enter-active,
+    .list-leave-active {
+        transition: all 0.3s;
+    }
+    .list-enter,
+    .list-leave-to
+    /* .list-leave-active for below version 2.1.8 */
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
+
+    .dialog{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        z-index: 9999;
+        overflow: auto;
+        .dialog-bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+        .dialog-form{
+            z-index: 2;
+            width: 55vw;
+            min-width: 800px;
+            border-radius: 0.3vw;
+            background-color: #0F123E;
+            margin: 3vw auto;
+            .head{
+                height: 3vw;
+                padding: 1vw;
+                .title{
+                    font-size: 1vw;
+                }
+                .close{
+                    display: block;
+                    float: right;
+                    cursor: pointer;
+                }
+            }
+            .foot{
+                height: 2vw;
+                border-radius: 0 0 0.3vw 0.3vw;
+                background-color: #060827;
+            }
+            .tab{
+                .tab-list{
+                    margin: 0 1vw;
+                    div{
+                        display: inline-block;
+                        height: 2vw;
+                        width: 5vw;
+                        line-height: 2vw;
+                        text-align: center;
+                        color: #aaa;
+                        background-color: #15194C;
+                        border-radius: 0.3vw 0.3vw 0 0;
+                        cursor: pointer;
+                    }
+                    div.selected{
+                        background-color: #232547;
+                        color: white;
+                    }
+                }
+                .tab-view{
+                    background-color: #060827;
+                    padding: 1vw;                    
+                }
+            }
+        }
+    }
+
+    .ivu-input{
+        background-color: #060827;
+        color: #aaa;
+    }
+
+    .ivu-select-dropdown{
+        background-color: #060827;
+        border: solid 1px #aaa;
+    }
+    .ivu-picker-panel-sidebar{
+        background-color: #060827;
+        color: #aaa;
+    }
+    .ivu-spin-fix{
+        background-color: #060827;
+    }
+
+    .ivu-table-body::-webkit-scrollbar
+    {
+        width: 6px;
+        height: 6px;
+    }
+    .ivu-table-body::-webkit-scrollbar-track-piece
+    {
+        background-color: rgba(255, 255, 255, 0.1);
+        -webkit-border-radius: 6px;
+    }
+    .ivu-table-body::-webkit-scrollbar-thumb:horizontal
+    {
+        width: 5px;
+        background-color: rgba(255, 255, 255, 0.4);
+        -webkit-border-radius: 6px;
+    }
+    .ivu-select-dropdown::-webkit-scrollbar
+    {
+        width: 6px;
+        height: 6px;
+    }
+    .ivu-select-dropdown::-webkit-scrollbar-track-piece
+    {
+        background-color: rgba(255, 255, 255, 0.1);
+        -webkit-border-radius: 6px;
+    }
+    .ivu-select-dropdown::-webkit-scrollbar-thumb:vertical
+    {
+        width: 5px;
+        background-color: rgba(255, 255, 255, 0.4);
+        -webkit-border-radius: 6px;
+    }
+}
+
+.dynamic>div {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+}

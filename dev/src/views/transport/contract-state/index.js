@@ -6,19 +6,22 @@ export default {
   },
   data() {
     return {
+      pageIndex: -1,
+      pageSize: 6,
+      list: [],
       barData: {
-        color: ['#3398DB', '#353A6B'],
+        color: ['#3398DB', '#5B6580'],
         grid: {
           top: '5%',
           left: '5%',
           right: '5%',
           bottom: '5%',
-          containLabel: true
+          containLabel: true,
         },
         xAxis: [
           {
             type: 'category',
-            data: ['达拉特电厂', '西宁电厂', '兰州电厂', '铜川电厂', '乌海电厂', '新疆电厂'],
+            data: [],
             nameRotate: 10,
             axisLabel: {
               interval: 0,
@@ -32,7 +35,7 @@ export default {
             },
             axisLine: {
               lineStyle: {
-                color: '#eee'
+                color: '#999'
               }
             },
           }
@@ -42,7 +45,13 @@ export default {
             type: 'value',
             axisLine: {
               lineStyle: {
-                color: '#eee'
+                color: '#999'
+              }
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(255, 255, 255, 0.1)'
               }
             },
           }
@@ -53,14 +62,14 @@ export default {
             type: 'bar',
             barWidth: '40%',
             stack: '完场情况',
-            data: [620, 732, 701, 734, 90, 130]
+            data: []
           },
           {
             name: '总计',
             type: 'bar',
             barWidth: '40%',
             stack: '完场情况',
-            data: [120, 132, 101, 134, 290, 230]
+            data: []
           },
         ]
       },
@@ -74,26 +83,64 @@ export default {
 
     };
   },
-  methods: {
-    timer(index) {
-      if (index == 0) {
-        this.barData.xAxis[0].data = ['达拉特电厂', '西宁电厂', '兰州电厂', '铜川电厂', '乌海电厂', '新疆电厂'];
-        this.barData.series[0].data = [620, 732, 701, 734, 90, 130];
-        this.barData.series[1].data = [120, 132, 101, 134, 290, 230];
+  watch: {
+    pageIndex() {
+      var start = this.pageIndex * this.pageSize;
+      var arr = this.list.slice(start, start + this.pageSize);
+
+      this.barData.xAxis[0].data = [];
+      this.barData.series[0].data = [];
+      this.barData.series[1].data = [];
+
+      arr.forEach(item => {
+        this.barData.xAxis[0].data.push(item.ReceiverName.length <= 5 ? item.ReceiverName : (item.ReceiverName.substr(0,4) + '...'));
+        this.barData.series[0].data.push(item.CompleteWeight);
+        this.barData.series[1].data.push(item.ContractTotalValue - item.CompleteWeight > 0 ? item.ContractTotalValue - item.CompleteWeight : 0);
+      });
+
+      while (this.barData.xAxis[0].data.length < this.pageSize) {
+        this.barData.xAxis[0].data.push("");
+        this.barData.series[0].data.push(0);
+        this.barData.series[1].data.push(0);
       }
-      else {
-        this.barData.xAxis[0].data = ['西安电厂', '秦山核电', '西北风电', '三峡水电', '', ''];
-        this.barData.series[0].data = [620, 73, 70, 73, 0, 0];
-        this.barData.series[1].data = [200, 30, 40, 50, 0, 0];
-      }
-      setTimeout(() => {
-        index = index == 0 ? 1 : 0;
-        this.timer(index);
-      }, 4000);
     }
   },
+  methods: {
+    timer(sec) {
+      setTimeout(() => {
+        // console.log(this.pageIndex);
+        if (this.pageIndex + 1 >= this.list.length / this.pageSize) {
+          this.init();
+        }
+        else {
+          this.pageIndex++;
+          this.timer(sec);
+        }
+      }, sec);
+    },
+    init() {
+
+      this.$service.get("/TMSApp/RecDelReport/GetCountContractCompleteCase", {}).then(res => {
+
+        if (!res.Data) {
+          this.pageIndex = 0;
+          this.timer(10000);
+          return;
+        }
+        this.list = res.Data;
+        this.pageIndex = 0;
+        this.timer(10000);
+      })
+        .catch(res => {
+          setTimeout(() => {
+            this.init();
+          }, 10000);
+        });
+    },
+  },
+
   mounted() {
-    this.timer(0);
+    this.init();
     window.addEventListener("resize", this.resizeCallback);
   },
   destroyed() {

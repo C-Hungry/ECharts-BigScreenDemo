@@ -1,5 +1,5 @@
 <style scoped>
-    @import 'styles/common.css';
+@import "styles/common.css";
 </style>
 <template>
     <div>
@@ -7,18 +7,10 @@
     </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {}
-        },
-        mounted () {
-
-        },
-        beforeDestroy () {
-
-        },
-        methods: {
-
-        }
-    }
+import { getUserInfo } from "./libs/storage";
+export default {
+  data() {
+    return {};
+  }
+};
 </script>

@@ -28,16 +28,16 @@ const RouterConfig = {
 };
 const router = new VueRouter(RouterConfig);
 
-router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
-});
+// router.beforeEach((to, from, next) => {
+//     iView.LoadingBar.start();
+//     Util.title(to.meta.title);
+//     next();
+// });
 
-router.afterEach((to, from, next) => {
-    iView.LoadingBar.finish();
-    window.scrollTo(0, 0);
-});
+// router.afterEach((to, from, next) => {
+//     iView.LoadingBar.finish();
+//     window.scrollTo(0, 0);
+// });
 
 window.VueRootInstance = new Vue({
     el: '#app',

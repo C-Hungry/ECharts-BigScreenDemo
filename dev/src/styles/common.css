@@ -1,6 +1,10 @@
-html{
-  font-size: 10px;
+html {
+    font-size: 0.5vw;
 }
-body{
-  overflow: hidden;
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
+

@@ -2,7 +2,7 @@ let util = {
 
 };
 util.title = function (title) {
-    title = title ? title + ' - Home' : 'iView project';
+    title = "集团大屏";
     window.document.title = title;
 };
 

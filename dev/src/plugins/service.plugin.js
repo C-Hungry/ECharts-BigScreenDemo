@@ -44,7 +44,7 @@ ApiServicePlugin.install = function (Vue) {
             sendData = data[key];
           }
           else {
-            if (!(data[key] === "")) dataStr += key + '=' + data[key] + '&';
+            dataStr += key + '=' + data[key] + '&';
           }
         })
 
@@ -63,7 +63,8 @@ ApiServicePlugin.install = function (Vue) {
         requestObj.open(type, url, true);
         requestObj.setRequestHeader("Accept", "application/json");
         requestObj.setRequestHeader("Content-type", "application/json");
-        requestObj.setRequestHeader("Authorization", getToken());
+        requestObj.setRequestHeader("uid", "1");
+        requestObj.setRequestHeader("Token", getToken());
         requestObj.send(JSON.stringify(sendData));
 
         requestObj.onreadystatechange = () => {

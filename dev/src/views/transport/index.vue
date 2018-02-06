@@ -1,73 +1,64 @@
 <template>
   <div class="transport">
-
-    <blocMap></blocMap>
-    <div class="title">
+    <blocMap style="z-index: 1;"></blocMap>
+    <div class="title" style="z-index: 2;">
       <img src="../../images/title-1.png">
-      <span>XXX公司燃料运输指挥中心</span>
+      <span>{{title}}智能燃料调运平台</span>
     </div>
     <div class="content">
       <div class="other">
-        <div class="left-top">
+        <div class="left-top" style="z-index: 3;">
           <div class="title">
-            各电厂今日执行情况
+            调运动态
           </div>
           <div class="content">
-            <receiverTodayPercent></receiverTodayPercent>
+            <transportDynamic></transportDynamic>
           </div>
         </div>
-        <div class="left-bottom">
+        <div class="left-bottom" style="z-index: 2;">
           <div class="title">
-            供应商今日计划占比（单位：吨）
+            合同进度（单位：吨）
           </div>
           <div class="content">
-            <consignerTodayPercent></consignerTodayPercent>
+            <contractProgress></contractProgress>
           </div>
         </div>
       </div>
       <div class="middle">
-        <div class="middle-top">
-          <consignerTodayTotal></consignerTodayTotal>
+        <div class="middle-top" style="z-index: 2;">
+          <consignerTodayTotal v-on:loaded="consignerTodayTotalLoaded"></consignerTodayTotal>
         </div>
         <div class="middle-middle">
         </div>
         <div class="middle-bottom">
           <div class="legend">
-            <div class="item">
-              <span class="circle" style="background-color: #E91313;"></span>&nbsp;&nbsp;集团/分公司
+            <div class="item" style="z-index: 2;">
+              <span class="circle" style="background-color: #E91313;"></span>&nbsp;&nbsp;分公司
             </div>
-            <div class="item">
+            <div class="item" style="z-index: 2;">
               <span class="circle" style="background-color: #00FFFF;"></span>&nbsp;&nbsp;电厂
             </div>
-            <div class="item">
-              <span class="circle" style="background-color: #19C010;"></span>&nbsp;&nbsp;矿点
+            <div class="item" style="z-index: 2;">
+              <span class="circle" style="background-color: #FFC322;"></span>&nbsp;&nbsp;煤矿
             </div>
           </div>
         </div>
       </div>
       <div class="other">
-        <div class="right-top">
+        <div class="right-top" style="z-index: 2;">
           <div class="title">
-            合同完成情况（单位：万吨）
+            煤质统计
           </div>
           <div class="content">
-            <contractState></contractState>
+            <coalQualityStatistics></coalQualityStatistics>
           </div>
         </div>
-        <div class="right-middle">
-          <div class="title">
-            电厂卸货效率排名（单位：吨/小时）
-          </div>
-          <div class="content">
-            <receiverUnloadEfficiency></receiverUnloadEfficiency>
-          </div>
-        </div>
-        <div class="right-bottom">
+        <div class="right-bottom" style="z-index: 2;">
           <div class="title">
             运输异常
           </div>
           <div class="content">
-            <transportException></transportException>
+            <transportExceptionTable></transportExceptionTable>
           </div>
         </div>
       </div>

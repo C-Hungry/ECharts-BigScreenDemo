@@ -13,7 +13,7 @@ export default {
       var start = this.pageIndex * this.pageSize;
       var arr = this.list.slice(start, start + this.pageSize);
       while (arr.length < this.pageSize) {
-        arr.push({ isEmpty: true, name: "" });
+        arr.push({ isEmpty: true, id: "empty" + (Math.random() * 10000) });
       }
       this.currentPageList = arr;
     }
@@ -34,22 +34,28 @@ export default {
 
     init() {
 
-      setTimeout(() => {
-        this.list = [
-          { name: "内蒙电厂", value: 100 },
-          { name: "新疆电厂", value: 100 },
-          { name: "乌海电厂", value: 100 },
-          { name: "铜川电厂", value: 100 },
-          { name: "西宁电厂", value: 100 },
-          { name: "兰州电厂", value: 100 },
-          { name: "西安电厂", value: 100 },
-          { name: "秦山核电", value: 100 },
-          { name: "西北风电", value: 100 },
-          { name: "三峡水电", value: 100 },
-        ];
-        this.pageIndex = 0;
-        this.timer(8000)
-      }, 1000);
+      this.$service.get("/TMSApp/RecDelReport/GetRateOfDischargInfo", {}).then(res => {
+
+        if (!res.Data) {
+          this.pageIndex = 0;
+          this.timer(10000);
+          return;
+        }
+        this.list = [];
+        this.pageIndex = -1;
+        setTimeout(() => {
+          res.Data.forEach(item => {
+            this.list.push({ id: item.CorpId, name: item.CorpName, value: item.DischargNumber });
+          });
+          this.pageIndex = 0;
+          this.timer(10000);
+        });
+      })
+      .catch(res=>{
+        setTimeout(() => {
+          this.init();
+        }, 10000);
+      });
     },
 
   },
